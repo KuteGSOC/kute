@@ -5,7 +5,6 @@
     android:id="@+id/content_land"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.scorelab.kute.kute.LandActivity"
     tools:showIn="@layout/app_bar_land">
@@ -21,6 +20,9 @@
         class="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
         android:id="@+id/mainMapView"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
