@@ -100,6 +100,7 @@ public class RegisterActivity extends AppCompatActivity implements
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()) {
                 // Google Sign In was successful, authenticate with Firebase
+                Log.e("check", "Google Sign In success.");
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else {
@@ -131,7 +132,9 @@ public class RegisterActivity extends AppCompatActivity implements
                         } else {
                             Toast.makeText(RegisterActivity.this, "Authentication Done."+task.getResult().getUser().getDisplayName()+" - "+task.getResult().getUser().getDisplayName()+" - "+task.getResult().getUser().getEmail()+" - "+task.getResult().getUser().getPhotoUrl().getPath()+" - ",
                                     Toast.LENGTH_SHORT).show();
-                            getImage(task.getResult().getUser().getPhotoUrl().toString());
+                            String imgurl=task.getResult().getUser().getPhotoUrl().toString();
+                            Log.d(TAG,"UserImage Url:"+imgurl);
+                            getImage(imgurl);
 
                             Intent intentdone=new Intent(RegisterActivity.this, SplashActivity.class);
                             startActivity(intentdone);
@@ -157,7 +160,7 @@ public class RegisterActivity extends AppCompatActivity implements
 
             // Configure Google Sign In
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                    .requestIdToken(getString(R.string.default_web_client_id))
+                    .requestIdToken(getString(R.string.server_client_id))
                     .requestEmail()
                     .build();
             mGoogleApiClient = new GoogleApiClient.Builder(this)

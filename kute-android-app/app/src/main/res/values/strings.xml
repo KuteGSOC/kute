@@ -4,6 +4,7 @@
     <string name="firebase_url">https://kutenew-c36c1.firebaseio.com/</string>
     <string name="facebook_app_id">sample</string>
     <string name="googlemapApi">sample</string>
+    <string name="server_client_id">247668497420-iu37do2el3l1totcgataime9de5bt3pd.apps.googleusercontent.com</string>
 
     <string-array name="planets_array">
         <item>Mercury</item>
